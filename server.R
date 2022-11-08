@@ -95,10 +95,10 @@ server <- function(input, output, session) {
     })
     output$proNumber <-
         renderUI({
-            #input PRO number or experiment code for saving file/report with specialized header
+            #input Project number or experiment code for saving file/report with specialized header
             
             textInput(inputId = 'select_pro',
-                      label = 'PRO number or specific ID',
+                      label = 'project number or specific ID',
                       value = 'NA',
                       placeholder = 'under construction'
                       )
@@ -121,7 +121,7 @@ server <- function(input, output, session) {
     output$subject <- renderUI({
         req(input$uploaded_file)
         textInput(inputId = 'subjectcol',
-                  label = 'Name of the MouseID column? Write "NA" for none',
+                  label = 'Name of the subject column (independent var)? Write "NA" for none',
                   value = 'NA',
                   placeholder = 'under construction, ignore')
     })
