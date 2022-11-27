@@ -13,8 +13,7 @@ A R Shiny application compiling all basic statistical tools for bivariate or mul
     *  Correlation matrix data table will output descriptive statistics for every variable selected. (*note: selecting treatment/group will group variables in the data table*)
 
 2. Correlation Table:
-    * **currently under construction**
-    * Proposed feature: to select many variables and output a Latex table of coefficient of determination and p-values to numerically rank the correlation between dependent variables.
+    * Proposed feature: to select many variables and output a DT table of coefficient of determination and p-values to numerically rank the correlation between dependent variables.
 
 3. Bivariate Analysis:
     * *Treatment/Group specification is not necessary*
@@ -24,5 +23,5 @@ A R Shiny application compiling all basic statistical tools for bivariate or mul
     * Statistical tests used: **Boxplot**: one-way ANOVA, Kruskal Wallis Test | **Correlation** Spearman rank correlation test.
   
 ### Currently Under Construction
-1. Download button to output a report
+1. Comprehensive downloadable report
 
