@@ -14,15 +14,8 @@ library(shinycustomloader)
 ui <- dashboardPage(
     skin = 'black',
     title = "Stats Tool",
-    dashboardHeader(title = span(
-        img(
-            src = 'https://www.alkahest.com/wp-content/uploads/2019/02/Alkahest-logo.png',
-            width = '200px',
-            height = '30px',
-            align = 'middle',
-            alt = 'Alkahest'
-        )
-    )),
+    dashboardHeader(title = 'Stats Tool for Analysis'
+    ),
     dashboardSidebar(sidebarMenu(
         menuItem(
             'Instructions',
@@ -59,7 +52,7 @@ ui <- dashboardPage(
                         status = 'primary',
                         h5(
                             "The function of this app is to facilitated data visualization and quickly get preliminary results. If you have any questions please email me at ",
-                            strong('johnny.sin@grifols.com')
+                            strong('jung.sin@hotmail.com')
                         ),
                         h5(
                             strong("Step (1)"),

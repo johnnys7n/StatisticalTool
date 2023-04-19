@@ -12,10 +12,14 @@ A R Shiny application compiling all basic statistical tools for bivariate or mul
     * Select two or more variables to input and output two different correlation matrices (heatmap with p-values per box or simplified heatmap for easier patterning).
     *  Correlation matrix data table will output descriptive statistics for every variable selected. (*note: selecting treatment/group will group variables in the data table*)
 
-2. Correlation Table:
+2. Pairs Plot:
+    * Select two or more variables as input and output pairs plot from GGally::ggpairs()
+    * can specify to color by group
+
+3. Correlation Table:
     * Proposed feature: to select many variables and output a DT table of coefficient of determination and p-values to numerically rank the correlation between dependent variables.
 
-3. Bivariate Analysis:
+4. Bivariate Analysis:
     * *Treatment/Group specification is not necessary*
     * Selecting a variable of interest after using the correlation matrices and tables to screen. 
     * In order 
@@ -24,4 +28,5 @@ A R Shiny application compiling all basic statistical tools for bivariate or mul
   
 ### Currently Under Construction
 1. Comprehensive downloadable report
+2. Cluster Analysis
 
