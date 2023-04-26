@@ -14,13 +14,17 @@ library(shinycustomloader)
 ui <- dashboardPage(
     skin = 'black',
     title = "Stats Tool",
-    dashboardHeader(title = 'Stats Tool for Analysis'
-    ),
+    dashboardHeader(title = 'Stats Tool'),
     dashboardSidebar(sidebarMenu(
         menuItem(
             'Instructions',
             tabName = 'instruction',
             icon = icon ('home', lib = 'glyphicon')
+        ),
+        menuItem(
+            'Outliers',
+            tabName = 'outlierpage',
+            icon = icon('warning-sign', lib = 'glyphicon')
         ),
         menuItem(
             'Correlation Matrix',
@@ -101,9 +105,38 @@ ui <- dashboardPage(
                                 '.xls'
                             )
                         ),
-                        uiOutput('checktreatment')
+                        uiOutput('checktreatment'),
+                        uiOutput('animal_ID')
+                        
                     )
                 )),
+        ##__Outlier Plot__
+        tabItem(tabName='outlierpage',
+                fluidRow(
+                    box(
+                        title = 'Inputs',
+                        width = 12,
+                        status = 'warning',
+                        uiOutput('outliercheckbox'),
+                        downloadButton('download_outliers', 'Download Outliers Removed Table')
+                    )),
+                fluidRow(
+                    tabBox(
+                        title = 'Outlier Tables',
+                        width = 12,
+                        tabPanel(
+                            'Data Table with Outliers Removed',
+                            DT::dataTableOutput('outlier_removed_table') %>% withLoader(type = 'html', loader = 'loader5')
+                        ),
+                        tabPanel(
+                            'Single Variable Outlier Detection',
+                            uiOutput('outliercheckbox2'),
+                            DT::dataTableOutput('outlier_table') %>% withLoader(type = 'html', loader = 'loader5')
+                        )
+                    ))),
+        
+        
+        ##__Correlation Matrix___
         tabItem(tabName = 'corrmatrixpage',
                 fluidRow(
                     box(
@@ -133,8 +166,8 @@ ui <- dashboardPage(
                         collapsible = TRUE
                     )
                 )),
-       # ___ Pairplot Tab _____
-         tabItem(tabName = 'pairplotpage',
+        # ___ Pairplot Tab _____
+        tabItem(tabName = 'pairplotpage',
                 fluidRow(
                     box(
                         title = "Inputs",
@@ -150,10 +183,11 @@ ui <- dashboardPage(
                         title = 'Pairs Plot of Inputs',
                         width = 12,
                         plotOutput('pair_plot_1', height = 800 ) %>% withLoader(type = 'html', loader = 'loader5'), 
-                                                                                style = 'display:block;height:80vh;overflow-y: scroll;'
-                        ))
-                    
-                ),
+                        style = 'display:block;height:80vh;overflow-y: scroll;'
+                    ))
+                
+        ),
+        ## __ bivariate analysis __
         tabItem(tabName = 'bivarpage',
                 fluidRow(
                     box(
